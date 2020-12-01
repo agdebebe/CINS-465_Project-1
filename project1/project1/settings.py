@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'budget',
     'core',
     'tasks',
+    'log',
 ]
 
 MIDDLEWARE = [

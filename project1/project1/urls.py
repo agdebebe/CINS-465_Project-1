@@ -18,11 +18,14 @@ from django.urls import path
 from budget import views as budget_view
 from core import views as core_view
 from tasks import views as tasks_view
+from log import views as log_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', core_view.core, name='core'),
     path('tasks/', tasks_view.tasks, name='tasks'),
     path('budget/', budget_view.budget, name='budget'),
-
+    path('join/', log_view.join, name='join'),
+    path('login/', log_view.user_login, name='login'),
+    path('logout/', log_view.user_logout, name='logout'),
 ]
