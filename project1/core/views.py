@@ -4,5 +4,5 @@ from django.http import HttpResponse
 # Create your views here.
 
 def core(request):
-    return HttpResponse("Main tasks page")
-    #return render(request, '')
+    #return HttpResponse("Main tasks page")
+    return render(request, 'core/core.html')

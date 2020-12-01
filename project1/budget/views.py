@@ -3,5 +3,5 @@ from django.http import HttpResponse
 # Create your views here.
 
 def budget(request):
-    return HttpResponse("Main tasks page")
-    #return render(request, 'app1/rules.html')
+    #return HttpResponse("Main tasks page")
+    return render(request, 'budget/budget.html')
