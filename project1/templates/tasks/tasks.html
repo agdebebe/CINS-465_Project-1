@@ -3,6 +3,37 @@
 <head>
   <meta charset="utf-8">
   <title></title>
-  <h1> "This is tasks.html" </h1>
   {% include "shared_links.html" %}
 </head>
+
+<body>
+  <h2> Tasks </h2>
+
+  </table>
+  <div class = "jumbotron">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Description</th>
+        <th scope="col">Catagory</th>
+        <th scope="col">Completed</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for row in task_objects %}
+          <tr>
+                <td> {{row.description}} </td>
+                <td> {{row.get_catagory_display}} </td>
+                <td> {{row.completed}} </td>
+                <td><button onclick="window.location.href='/edit_tasks'" type="button" class="btn btn-outline-success my-2 my-sm-0">Edit</button>
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">Delete</button>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  <button onclick="window.location.href='/add_tasks'" type="button" class="btn btn-info" action="/add_tasks">Add Task</button>
+</div>
+</body>

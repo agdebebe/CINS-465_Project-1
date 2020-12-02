@@ -28,4 +28,6 @@ urlpatterns = [
     path('join/', log_view.join, name='join'),
     path('login/', log_view.user_login, name='login'),
     path('logout/', log_view.user_logout, name='logout'),
+    path('add_tasks/', tasks_view.add_tasks, name='add_tasks'),
+    path('edit_tasks/', tasks_view.edit_tasks, name='edit_tasks'),
 ]
