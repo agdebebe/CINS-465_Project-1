@@ -22,7 +22,7 @@ def add_tasks(request):
             return redirect("/tasks")
         else:
             # Form invalid, print errors to console
-            page_data = { "add_taskform": add_taskform }
+            page_data = { "ADD_TASKFORM": add_taskform }
             return render(request, 'tasks/tasks.html', page_data)
 
     else:
@@ -30,28 +30,30 @@ def add_tasks(request):
         page_data = { "ADD_TASKFORM": add_taskform }
         return render(request, 'tasks/add_tasks.html', page_data)
 
-def edit_tasks(request):
-    if (request.method == "POST"):
-        edit_taskform = EDIT_TASKFORM(request.POST);
+def edit_tasks(request, pk):
+    hh = Task.objects.get(id=pk)
+    edit_taskform = EDIT_TASKFORM(instance = hh)
 
-        if (edit_tasks.is_valid()):
-            id = edit_taskform["id"]
-            description = edit_taskform.cleaned_data["description"]
-            catagory = chess_form.cleaned_data["catagory"]
-            hh = Board.objects.get(id=id)
-            vall = hh.value
-            Board(description=description, catagory=catagory).save()
-            Board(name=location, value=" ").save()
+    if (request.method == "POST"):
+        edit_taskform = EDIT_TASKFORM(request.POST, instance = hh)
+
+        if (edit_taskform.is_valid()):
+            description = edit_taskform.save()
+            catagory = edit_taskform.save()
             return redirect("/tasks")
+
         else:
-            page_data = { "edit_taskform": edit_taskform }
-            return render(request, 'tasks/edit_tasks.html', page_data)
+            # Form invalid, print errors to console
+            page_data = { "EDIT_TASKFORM": edit_taskform }
+            return render(request, 'tasks/tasks.html', page_data)
 
     else:
-        edit_taskform = EDIT_TASKFORM()
-        page_data = { "Edit_TASKFORM": edit_taskform }
+        hh = Task.objects.get(id=pk)
+        edit_taskform = EDIT_TASKFORM(instance = hh)
+        page_data = { "EDIT_TASKFORM": edit_taskform }
         return render(request, 'tasks/edit_tasks.html', page_data)
 
-def delete(request):
-    dele = Task.objects.get(pk = emp_id)
-    dele.delete()
+def delete(request, pk):
+    dele = Task.objects.get(id=pk)
+    page_data = {"Dele": dele}
+    return render(request, 'delete.html', page_data)
