@@ -19,6 +19,7 @@ from budget import views as budget_view
 from core import views as core_view
 from tasks import views as tasks_view
 from log import views as log_view
+from journal import views as journal_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,5 +31,13 @@ urlpatterns = [
     path('logout/', log_view.user_logout, name='logout'),
     path('add_tasks/', tasks_view.add_tasks, name='add_tasks'),
     path('edit_tasks/<str:pk>/', tasks_view.edit_tasks, name='edit_tasks'),
-    path('delete/<str:pk>/', tasks_view.delete, name='delete'),
+    path('tasks/delete/<str:pk>/', tasks_view.delete, name='tasks/delete'),
+    path('budget/delete/<str:pk>/', budget_view.delete, name='budget/delete'),
+    path('journal/delete/<str:pk>/', journal_view.delete, name='journal/delete'),
+    path('add_budget/', budget_view.add_budget, name='add_budget'),
+    path('edit_budget/<str:pk>/', budget_view.edit_budget, name='edit_budget'),
+    path('toggle/<str:pk>/', tasks_view.toggle, name='toggle'),
+    path('journal/', journal_view.journal, name='journal'),
+    path('add_journal/', journal_view.add_journal, name='add_journal'),
+    path('edit_journal/<str:pk>/', journal_view.edit_journal, name='edit_journal'),
 ]

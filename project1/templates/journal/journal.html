@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  {% include "shared_links.html" %}
+  {% include "delete.html" %}
+  {% load static %}
+  <script src="{% static 'JS/journal.js' %}"></script>
+  <link href="{%static 'CSS/core.css'%}" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <h2> Journal </h2>
+
+
+</table>
+  <div class = "jumbotron">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Description</th>
+        <th scope="col">Journal Entry</th>
+        <th scope="col">Time Created</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for row in journal_objects %}
+          <tr>
+                <td> {{row.description}} </td>
+                <td> {{row.entry}} </td>
+                <td> {{row.time_created}} </td>
+                <td><a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'edit_journal' row.id %}">Edit</button></a>
+                  <a class="btn btn-danger" href="#" onclick="confirmDeleteModal({{row.id}})">Delete</a>
+
+
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  <button onclick="window.location.href='/add_journal'" type="button" class="btn btn-info" action="/add_tasks">Add Journal</button>
+</div>
+<p> {{tt.catagory}} </p>
+</body>

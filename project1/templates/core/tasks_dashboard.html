@@ -1,0 +1,27 @@
+
+
+
+
+{% load static %}
+<link href="{%static 'CSS/core.css'%}" rel="stylesheet">
+
+  <div class="ct-chart ct-perfect-fourth" id="chart1"></div>
+
+
+<body>
+
+
+
+
+</body>
+
+
+
+
+<script>
+new Chartist.Pie('#chart1',
+{ labels: ['Completed', 'Pending'], series: [{{completed}}, {{pending}}] },
+{ labelInterpolationFnc: function(value) { return value[0] } },
+[['screen', { width: 500, height: 500, chartPadding: 20, labelOffset: 60, labelDirection: 'explode',
+labelInterpolationFnc: function(value) { return value;}}]]);
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  {% include "shared_links.html" %}
+</head>
+
+<body>
+  <div class="container">
+    <div class = "jumbotron">
+      <h1>Edit Budget</h1>
+      <form method="POST">{% csrf_token %}
+        <table>
+            {{ EDIT_BUDGETFORM.as_table }}
+            <tr><td>
+              <input type="submit" class="btn btn-primary" value = "Edit Task"/>
+              <button onclick="window.location.href='/budget'" type="button" class="btn btn-outline-success my-2 my-sm-0">Cancel</button>
+            </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</body>

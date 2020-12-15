@@ -3,6 +3,45 @@
 <head>
   <meta charset="utf-8">
   <title></title>
-  <h1> "THis is Budget.html" </h1>
   {% include "shared_links.html" %}
+  {% include "delete.html" %}
+  {% load static %}
+  <h1> </h1>
+  <script src="{% static 'JS/budget.js' %}"></script>
 </head>
+
+<body>
+  <h2> Budget </h2>
+
+  </table>
+  <div class = "jumbotron">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Description</th>
+        <th scope="col">Catagory</th>
+        <th scope="col">Projected</th>
+        <th scope="col">Actual</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for row in budget_object %}
+          <tr>
+            <td> {{row.description}} </td>
+            <td> {{row.get_catagory_display}} </td>
+            <td> {{row.projected}} </td>
+            <td> {{row.actual}} </td>
+            <td><a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'edit_budget' row.id %}" >Edit</button></a>
+              <a class="btn btn-danger" href="#" onclick="confirmDeleteModal({{row.id}})">Delete</a>
+
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+    <button onclick="window.location.href='/add_budget'" type="button" class="btn btn-info" >Add Budget</button>
+  </div>
+  <p> There is a projected budget surplus of ${{surplus}}. </p>
+  <p> There is a projected budget deficit of ${{deficit}}. </p>
+  </body>

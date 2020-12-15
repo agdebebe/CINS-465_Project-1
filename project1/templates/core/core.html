@@ -4,5 +4,59 @@
   <meta charset="utf-8">
   <title></title>
   {% include "shared_links.html" %}
-    <h1> "THis is core.html" </h1>
+  <!--chart definition-->
+  {% load static %}
+  <link href="{%static 'CSS/core.css'%}" rel="stylesheet">
 </head>
+
+<body>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="container-fluid">
+        <div align ="center">
+        <div class = "jumbotron">
+            <h2> Tasks </h2>
+            <div class = "jumbotron">
+            {% include "core/tasks_dashboard.html" %}
+          </div>
+          </div>
+
+            <button onclick="window.location.href='/tasks'" type="button"  class="btn btn-info pull-right">Tasks</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="container-fluid">
+          <div align ="center">
+              <div class = "jumbotron">
+          <h2> Budget </h2>
+            <div class = "jumbotron">
+          {% include "core/budget_dashboard.html" %}
+          </div>
+
+        </div>
+
+          <button onclick="window.location.href='/budget'" type="button"  class="btn btn-info pull-right">Budget</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="container-fluid">
+        <div class = "jumbotron">
+          <div align="center">
+            <h2>Journal</h2>
+            <button onclick="window.location.href='/journal'" type="button"  class="btn btn-info pull-right">Journals</button>
+          </div>
+        </div>
+        <div align ="center">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</body>

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'core',
     'tasks',
     'log',
+    'journal'
 ]
 
 MIDDLEWARE = [

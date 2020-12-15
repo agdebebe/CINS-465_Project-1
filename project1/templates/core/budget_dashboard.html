@@ -1,0 +1,37 @@
+
+
+
+<div class="ct-chart ct-perfect-fourth" id="chart2"></div>
+
+
+
+<script>
+
+var data = {
+  labels: [],
+  series: [
+    {{tow}},
+    {{cow}}
+  ]
+};
+
+var options = {
+  seriesBarDistance: 10,
+  width: 500,
+  height: 500,
+
+};
+
+var responsiveOptions = [
+  ['screen and (max-width: 640px)', {
+    seriesBarDistance: 5,
+    axisX: {
+      labelInterpolationFnc: function (value) {
+        return value[0];
+      }
+    }
+  }]
+];
+
+new Chartist.Bar('#chart2', data, options, responsiveOptions);
+</script>

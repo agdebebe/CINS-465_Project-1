@@ -1,0 +1,37 @@
+.ct-series-a .ct-slice-pie {
+  /* fill of the pie slieces */
+  fill: hsl(120, 40%, 60%);
+  /* give your pie slices some outline or separate them visually by using the background color here */
+  stroke: green;
+  /* outline width */
+  stroke-width: 4px;
+}
+.ct-series-a .ct-bar {
+margin : 0 0 30px 0;
+background-position: -232px 0;
+}
+
+font-family: 'Dancing Script', cursive;
+
+.but {
+  margin-left: -800px;
+}
+
+
+#right-panel-link {
+  position: absolute;
+  top: 50;
+  right: 100;
+}
+
+.custom-control.custom-checkbox{padding-left: 0;}
+
+label.custom-control-label {
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+label.custom-control-label::before, label.custom-control-label::after{
+  right: 0;
+  left: auto;
+}
